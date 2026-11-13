@@ -1,0 +1,14 @@
+.idea/
+*.iml
+out/
+build/
+target/
+.gradle/
+*.class
+*.log
+.DS_Store
+dist/
+packaging/config/*.properties
+db.properties
+mail.properties
+target/
