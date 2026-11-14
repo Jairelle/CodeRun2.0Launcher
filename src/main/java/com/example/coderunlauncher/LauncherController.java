@@ -172,6 +172,7 @@ public class LauncherController {
         setupSettingsAndPrefs();
         setupEnterKeys();
         playIntro();
+        UpdateChecker.install((StackPane) bgImageView.getParent());   // small "Update to vX" button, top-right
         // Start with status and back hidden
         if (statusLabel != null) statusLabel.setVisible(false);
         if (backButton != null) backButton.setVisible(false);
@@ -1330,9 +1331,11 @@ public class LauncherController {
     private void startTriviaTopUp() {
         Thread topUp = new Thread(() -> {
             try {
-                TriviaService.topUp(100);
+                // The islands ask our own topic questions now (IslandQuestions), not Open Trivia DB ones:
+                // the first time, put the starter set in the table so there is something to play and edit.
+                IslandQuestions.seedStarterIfEmpty();
             } catch (Exception e) {
-                System.err.println("Trivia top-up skipped: " + e.getMessage());
+                System.err.println("Starter questions skipped: " + e.getMessage());
             }
         }, "trivia-topup");
         topUp.setDaemon(true);
@@ -1356,7 +1359,7 @@ public class LauncherController {
                 Path questionsFile = AppPaths.runtimeDir().resolve("trivia_questions.json");
                 boolean haveQuestions = false;
                 try {
-                    haveQuestions = TriviaService.exportRandom(50, questionsFile) > 0;
+                    haveQuestions = IslandQuestions.export(questionsFile) > 0;   // every island question, the same list for every player
                 } catch (Exception e) {
                     System.err.println("Could not export trivia questions: " + e.getMessage());
                 }
