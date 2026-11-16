@@ -393,9 +393,10 @@
       </VBox>
 
       <!-- ==================== SETTINGS PANE ==================== -->
-      <VBox fx:id="settingsPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="422.0" spacing="8.0" translateX="-20.0" translateY="60.0" visible="false" StackPane.alignment="CENTER_RIGHT">
+      <VBox fx:id="settingsPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="410.0" prefWidth="430.0" spacing="7.0" styleClass="settings-card" translateX="-18.0" translateY="6.0" visible="false" StackPane.alignment="CENTER_RIGHT">
+         <padding><Insets bottom="14.0" left="16.0" right="16.0" top="14.0" /></padding>
          <children>
-            <Label styleClass="pane-title" text="Game Settings"><font><Font name="JetBrainsMono NF Light Italic" size="15.0" /></font></Label>
+            <Label styleClass="pane-title" text="Game Settings"><font><Font name="JetBrainsMono NF Light Italic" size="20.0" /></font></Label>
             <CheckBox fx:id="fullscreenCheck" mnemonicParsing="false" styleClass="remember-check" text="Start the game in fullscreen"><font><Font name="JetBrainsMono NF Light Italic" size="13.0" /></font></CheckBox>
             <HBox alignment="CENTER" maxWidth="320.0" spacing="10.0">
                <children>

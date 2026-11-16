@@ -207,3 +207,14 @@
 .settings-slider { -fx-cursor: hand; }
 .settings-slider .track { -fx-background-color: #f0d49b; -fx-background-radius: 3; -fx-pref-height: 6; }
 .settings-slider .thumb { -fx-background-color: #1f6568; -fx-background-radius: 8; -fx-padding: 7; }
+
+/* Settings: a dark wooden card, so the panel never sits on top of the logo in the background */
+.settings-card {
+    -fx-background-color: rgba(28, 20, 14, 0.9);
+    -fx-background-radius: 14;
+    -fx-border-color: #c99a5b;
+    -fx-border-width: 2;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 18, 0.2, 0, 4);
+}
+.settings-card .pane-title { -fx-text-fill: #ffd76a; }
